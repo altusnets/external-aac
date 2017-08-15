@@ -417,15 +417,9 @@ static const SHORT sfb_24_480[31] =
 const SFB_INFO sfbOffsetTables[5][16] =
 {
   {
-#ifdef MTK_AOSP_ENHANCEMENT  // for 1024, support 96/88/64 K sampling rate
-    { sfb_96_1024, sfb_96_128, 41, 12},
-    { sfb_96_1024, sfb_96_128, 41, 12},
-    { sfb_64_1024, sfb_64_128, 47, 12},
-#else
-    { NULL, NULL, 0, 0 },
-    { NULL, NULL, 0, 0 },
-    { NULL, NULL, 0, 0 },
-#endif
+    { sfb_96_1024, sfb_96_128, 41, 12 },
+    { sfb_96_1024, sfb_96_128, 41, 12 },
+    { sfb_64_1024, sfb_64_128, 47, 12 },
     { sfb_48_1024, sfb_48_128, 49, 14 },
     { sfb_48_1024, sfb_48_128, 49, 14 },
     { sfb_32_1024, sfb_48_128, 51, 14 },

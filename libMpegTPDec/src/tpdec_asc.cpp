@@ -582,7 +582,6 @@ int CProgramConfig_LookupElement(
       || elType == ID_LFE )
     {
       *elMapping = pPce->elCounter;
-#ifndef MTK_AOSP_ENHANCEMENT
       if (elList[pPce->elCounter] != elType) {
         /* Not in the list */
         if ( (channelConfig == 2) && (elType == ID_SCE) )
@@ -593,7 +592,6 @@ int CProgramConfig_LookupElement(
           return 0;
         }
       }
-#endif
       /* Assume all front channels */
       getImplicitAudioChannelTypeAndIndex(&chType[channelIdx], &chIndex[channelIdx], channelConfig, channelIdx);
       if (elType == ID_CPE) {

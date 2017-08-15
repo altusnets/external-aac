@@ -17,6 +17,7 @@ cc_library_static {
         "-Wno-#warnings",
         "-Wno-constant-logical-operand",
         "-Wno-self-assign",
+        "-DMTK_AOSP_ENHANCEMENT",
     ],
     export_include_dirs: [
         "libAACdec/include",

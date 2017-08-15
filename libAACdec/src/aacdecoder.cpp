@@ -2,7 +2,7 @@
 /* -----------------------------------------------------------------------------------------------------------
 Software License for The Fraunhofer FDK AAC Codec Library for Android
 
-?Copyright  1995 - 2015 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V.
+© Copyright  1995 - 2015 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V.
   All rights reserved.
 
  1.    INTRODUCTION
@@ -1630,13 +1630,12 @@ LINKSPEC_CPP AAC_DECODER_ERROR CAacDecoder_DecodeFrame(
     if ( transportDec_GetAuBitsTotal(self->hInput, 0) > 0 ) {
       INT unreadBits = transportDec_GetAuBitsRemaining(self->hInput, 0);
       if ( unreadBits != 0 ) {
-#ifndef MTK_AOSP_ENHANCEMENT
+
         self->frameOK = 0;
         /* Do not overwrite current error */
         if (ErrorStatus == AAC_DEC_OK && self->frameOK == 0) {
           ErrorStatus = AAC_DEC_PARSE_ERROR;
         }
-#endif
         /* Always put the bitbuffer at the right position after the current Access Unit. */
         FDKpushBiDirectional(bs, unreadBits);
       }
