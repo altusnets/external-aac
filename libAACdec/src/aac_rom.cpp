@@ -2,7 +2,7 @@
 /* -----------------------------------------------------------------------------------------------------------
 Software License for The Fraunhofer FDK AAC Codec Library for Android
 
-© Copyright  1995 - 2015 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V.
+?Copyright  1995 - 2015 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V.
   All rights reserved.
 
  1.    INTRODUCTION
@@ -417,9 +417,15 @@ static const SHORT sfb_24_480[31] =
 const SFB_INFO sfbOffsetTables[5][16] =
 {
   {
-    { sfb_96_1024, sfb_96_128, 41, 12 },
-    { sfb_96_1024, sfb_96_128, 41, 12 },
-    { sfb_64_1024, sfb_64_128, 47, 12 },
+#ifdef MTK_AOSP_ENHANCEMENT  // for 1024, support 96/88/64 K sampling rate
+    { sfb_96_1024, sfb_96_128, 41, 12},
+    { sfb_96_1024, sfb_96_128, 41, 12},
+    { sfb_64_1024, sfb_64_128, 47, 12},
+#else
+    { NULL, NULL, 0, 0 },
+    { NULL, NULL, 0, 0 },
+    { NULL, NULL, 0, 0 },
+#endif
     { sfb_48_1024, sfb_48_128, 49, 14 },
     { sfb_48_1024, sfb_48_128, 49, 14 },
     { sfb_32_1024, sfb_48_128, 51, 14 },
