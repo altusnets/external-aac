@@ -1630,13 +1630,13 @@ LINKSPEC_CPP AAC_DECODER_ERROR CAacDecoder_DecodeFrame(
     if ( transportDec_GetAuBitsTotal(self->hInput, 0) > 0 ) {
       INT unreadBits = transportDec_GetAuBitsRemaining(self->hInput, 0);
       if ( unreadBits != 0 ) {
-#ifndef MTK_AOSP_ENHANCEMENT
+#ifndef MTK_AOSP_ENHANCEMENT //mtk bugfix
         self->frameOK = 0;
         /* Do not overwrite current error */
         if (ErrorStatus == AAC_DEC_OK && self->frameOK == 0) {
           ErrorStatus = AAC_DEC_PARSE_ERROR;
         }
-#endif
+#endif //mtk bugfix
         /* Always put the bitbuffer at the right position after the current Access Unit. */
         FDKpushBiDirectional(bs, unreadBits);
       }

@@ -1136,7 +1136,7 @@ LINKSPEC_CPP INT aacDecoder_GetLibInfo ( LIB_INFO *info )
   if (info == NULL) {
     return -1;
   }
-
+#ifndef MTK_AOSP_ENHANCEMENT //mtk bugfix
   sbrDecoder_GetLibInfo( info );
   transportDec_GetLibInfo( info );
   FDK_toolsGetLibInfo( info );
@@ -1150,7 +1150,7 @@ LINKSPEC_CPP INT aacDecoder_GetLibInfo ( LIB_INFO *info )
     return -1;
   }
   info += i;
-
+#endif //mtk bugfix
   info->module_id = FDK_AACDEC;
   /* build own library info */
   info->version = LIB_VERSION(AACDECODER_LIB_VL0, AACDECODER_LIB_VL1, AACDECODER_LIB_VL2);
