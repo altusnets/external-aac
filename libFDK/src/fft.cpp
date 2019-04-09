@@ -106,16 +106,14 @@ amm-info@iis.fraunhofer.de
 #define W_PiFOURTH STC(0x5a82799a)
 //#define W_PiFOURTH ((FIXP_DBL)(0x5a82799a))
 #ifndef SUMDIFF_PIFOURTH
-/*BEGIN, Motorola zhangtai3, IKSWP-40593*/
 #define SUMDIFF_PIFOURTH(diff, sum, a, b) \
   {                                       \
     FIXP_DBL wa, wb;                      \
     wa = fMultDiv2(a, W_PiFOURTH);        \
     wb = fMultDiv2(b, W_PiFOURTH);        \
     diff = wb - wa;                       \
-    sum = (LONG)(((INT64)wb) + wa);       \
+    sum = wb + wa;                        \
   }
-/*END, IKSWP-40593*/
 #define SUMDIFF_PIFOURTH16(diff, sum, a, b)       \
   {                                               \
     FIXP_SGL wa, wb;                              \
